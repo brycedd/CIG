@@ -16,9 +16,6 @@ public class Revert {
     }
 
     private static Integer getAndRemoveLastElement(Stack<Integer> stack) {
-        if (stack.isEmpty()) {
-            throw new RuntimeException("source stack is empty");
-        }
         Integer pop = stack.pop();
         if (stack.empty()) {
             return pop;
