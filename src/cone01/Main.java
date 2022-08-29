@@ -1,12 +1,10 @@
 package cone01; /**
  * @author Bryce_dd 2022/8/28 21:45
+ * 实现一个特殊栈，在实现栈的基本功能的基础上，再实现返回栈中最小元素的操作
  */
 
 import java.util.Stack;
 
-/**
- * 实现一个特殊栈，在实现栈的基本功能的基础上，再实现返回栈中最小元素的操作
- */
 public class Main {
     public static void main(String[] args) {
         MyStack1 myStack1 = new MyStack1(new Stack<>(), new Stack<>());
