@@ -63,6 +63,7 @@ public class Main {
     }
 
 
+    // 上一个条件，利用栈来解答
     public static int hanoiProblem(int num, String left, String mid, String right) {
         Stack<Integer> lS = new Stack<>();
         Stack<Integer> mS = new Stack<>();
@@ -84,7 +85,6 @@ public class Main {
         return step;
     }
 
-    // 上一个条件，利用栈来解答
     public static int fStackTotStack(Action[] record,
                                      Action preNoAct,
                                      Action nowAct,
