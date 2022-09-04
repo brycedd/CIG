@@ -1,4 +1,4 @@
-package cone05;
+package chapterone.cone05;
 
 import java.util.Stack;
 

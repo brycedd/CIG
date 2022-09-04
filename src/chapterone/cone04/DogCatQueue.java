@@ -1,6 +1,5 @@
-package cone04;
+package chapterone.cone04;
 
-import java.util.Enumeration;
 import java.util.LinkedList;
 import java.util.Queue;
 
