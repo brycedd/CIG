@@ -5,7 +5,7 @@ package netcode;
  *
  * @author Bryce_dd 2022/9/4 23:06
  */
-public class P6 {
+public class CopyNodeWithRandNode {
 
     public static void main(String[] args) {
     }
