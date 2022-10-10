@@ -37,8 +37,14 @@ public class ThreeSum {
             int e = nums.length - 1;
             while (s < e) {
                 int sum = nums[s] + nums[e];
-                if (sum + nums[index] > 0) e--;
-                if (sum + nums[index] < 0) s++;
+                if (sum + nums[index] > 0) {
+                    e--;
+                    continue;
+                }
+                if (sum + nums[index] < 0) {
+                    s++;
+                    continue;
+                }
                 if (sum + nums[index] == 0) {
                     List<Integer> res = new ArrayList<>();
                     res.add(nums[index]);
