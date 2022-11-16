@@ -15,6 +15,7 @@ public class Main {
         int[] maxWindow = getMaxWindow(arr, 3);
         System.out.println(Arrays.toString(maxWindow));
         System.out.println(Arrays.toString(getMaxWindowD(arr, 3)));
+        System.out.println(Arrays.toString(getMaxWindow3(arr, 3)));
     }
 
     // 时间复杂度 O(n * w)
@@ -67,4 +68,29 @@ public class Main {
         }
         return res;
     }
+
+
+    public static int[] getMaxWindow3(int[] arr, int w) {
+        LinkedList<Integer> maxQueue = new LinkedList<>();
+        int[] res = new int[arr.length - w + 1];
+        for (int i = 0; i < arr.length; i++) {
+            if (maxQueue.size() == 0 || arr[maxQueue.peekLast()] > arr[i]) {
+                maxQueue.add(i);
+            } else {
+                while (maxQueue.size() > 0 && arr[maxQueue.peekLast()] <= arr[i]) {
+                    maxQueue.pollLast();
+                }
+                maxQueue.add(i);
+            }
+            if (i >= w - 1) {
+                while (maxQueue.peekFirst() < i - w + 1) {
+                    maxQueue.pollFirst();
+                }
+                res[i - w + 1] = arr[maxQueue.peekFirst()];
+            }
+        }
+        return res;
+    }
+
+
 }

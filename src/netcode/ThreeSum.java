@@ -2,7 +2,9 @@ package netcode;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.function.Supplier;
 
 /**
  * @author Bryce_dd 2022/10/10 23:03
@@ -14,11 +16,25 @@ import java.util.List;
  * 注意：答案中不可以包含重复的三元组。
  */
 public class ThreeSum {
-
+    private static final Supplier<Integer> func = getFunc();
     public static void main(String[] args) {
-        int[] arr = {-1, 0, 1, 2, -1, -1, -4};
-        List<List<Integer>> lists = threeSum(arr);
-        System.out.println(lists);
+//        int[] arr = {-1, 0, 1, 2, -1, -1, -4};
+//        List<List<Integer>> lists = threeSum(arr);
+//        System.out.println(lists);
+        Integer integer = func.get();
+        System.out.println(integer);
+        Integer integer1 = func.get();
+        System.out.println(integer1);
+        HashMap<String, List<String>> map = new HashMap<>();
+        map.computeIfPresent("key", (k, v) -> v);
+        map.computeIfAbsent("key", k -> new ArrayList<>());
+
+
+    }
+
+    private static Supplier<Integer> getFunc() {
+        final Integer[] a = {0};
+        return () -> ++a[0];
     }
 
     private static List<List<Integer>> threeSum(int[] nums) {
