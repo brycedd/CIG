@@ -1,4 +1,4 @@
-package chapterone.ctwo01;
+package chaptertwo.ctwo01;
 
 import model.Node;
 
