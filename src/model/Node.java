@@ -33,16 +33,26 @@ public class Node {
         return node;
     }
 
-    public void println() {
-        int i = 0;
+    public void println(boolean... printDetail) {
+        System.out.print("Node: ");
         Node head = this;
+        Node headDetail = this;
         while (head != null) {
+            System.out.print(" " + head.value);
+            head = head.next;
+        }
+        System.out.println();
+        if (null == printDetail || printDetail.length == 0 || !printDetail[0]) {
+            return;
+        }
+        int i = 0;
+        while (headDetail != null) {
             System.out.printf("node:%s value = %s, lastValue = %s, nextValue = %s%n",
                     ++i,
-                    head.value,
-                    null != head.last ? head.last.value : null,
-                    null != head.next ? head.next.value : null);
-            head = head.next;
+                    headDetail.value,
+                    null != headDetail.last ? headDetail.last.value : null,
+                    null != headDetail.next ? headDetail.next.value : null);
+            headDetail = headDetail.next;
         }
     }
 }
