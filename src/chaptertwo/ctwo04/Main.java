@@ -7,21 +7,21 @@ import model.Node;
  */
 public class Main {
     public static void main(String[] args) {
-//        reverseListTest();
-        reverseList2Test();
+        reverseListTest();
+//        reverseList2Test();
     }
 
     public static void reverseListTest() {
         Node build = Node.build(1, 2, 3, 4, 5);
         build.println(true);
-        Node node = reverseList(build);
+        Node node = reverseList4(build);
         node.println(true);
     }
 
     public static void reverseList2Test() {
         Node build = Node.build(1, 2, 3, 4, 5);
         build.println(true);
-        Node node = reverseList2(build);
+        Node node = reverseList3(build);
         node.println(true);
     }
 
@@ -33,6 +33,17 @@ public class Main {
         Node next = null;
         while (head != null) {
             next = head.next;
+            head.next = pre;
+            pre = head;
+            head = next;
+        }
+        return pre;
+    }
+
+    public static Node reverseList4(Node head) {
+        Node pre = null;
+        while (head != null) {
+            Node next = head.next;
             head.next = pre;
             pre = head;
             head = next;
@@ -56,6 +67,23 @@ public class Main {
             pre = head;
             // 设置下一个遍历节点
             head = next;
+
+        }
+        return pre;
+    }
+
+    public static Node reverseList3(Node head) {
+        Node pre = null;
+        Node next = null;
+        while (head != null) {
+            next = head.next;
+            head.last = next;
+            head.next = pre;
+            pre = head;
+            head = next;
+
+
+
 
         }
         return pre;
