@@ -7,10 +7,11 @@ import model.Node;
  */
 public class Main {
     public static void main(String[] args) {
-        Node head = Node.build(1, 2, 3, 4, 5, 6, 7, 8, 9);
-        head.println();
-        Node node = reversePart(head, 1, 9);
-        node.println();
+        System.out.println(1%3);
+//        Node head = Node.build(1, 2, 3, 4, 5, 6, 7, 8, 9);
+//        head.println();
+//        Node node = reversePart(head, 1, 9);
+//        node.println();
     }
 
     public static Node reversePart(Node head, int from, int to) {
