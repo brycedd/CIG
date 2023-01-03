@@ -12,9 +12,62 @@ public class Main {
 
     public static void main(String[] args) {
         Node node1 = Node.build(1, 7, 9, 0);
-        Node node2 = Node.build(3,8,9);
-        Node sum = sum(node1, node2);
+        Node node2 = Node.build(3, 8, 9);
+//        Node sum = sum(node1, node2);
+        Node sum = sum2(node1, node2);
         sum.println();
+    }
+
+    /**
+     * 逆序两个链表，再相加生成新链表，再逆序回来原链表，可节省额外的栈空间
+     */
+    public static Node sum2(Node node1, Node node2) {
+        // 反转
+        Node next;
+        Node pre = null;
+        while (node1 != null) {
+            next = node1.next;
+            node1.next = pre;
+            pre = node1;
+            node1 = next;
+        }
+        Node head1 = pre;
+        pre = null;
+        while (node2 != null) {
+            next = node2.next;
+            node2.next = pre;
+            pre = node2;
+            node2 = next;
+        }
+        Node head2 = pre;
+
+        Node res = null;
+        int n = 0; // 进位
+        while (head1 != null || head2 != null) {
+            int p1 = 0;
+            int p2 = 0;
+            if (head1 != null) {
+                p1 = head1.value;
+                head1 = head1.next;
+            }
+            if (head2 != null) {
+                p2 = head2.value;
+                head2 = head2.next;
+            }
+            // 拼接结果
+            Node node = new Node((p1 + p2 + n) % 10);
+            node.next = res;
+            res = node;
+            n = (p1 + p2 + n) / 10;
+        }
+
+        if (0 != n) {
+            Node node = new Node(n);
+            node.next = res;
+            res = node;
+        }
+
+        return res;
     }
 
     public static Node sum(Node node1, Node node2) {

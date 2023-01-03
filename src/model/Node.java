@@ -38,6 +38,11 @@ public class Node {
         Node head = this;
         Node headDetail = this;
         while (head != null) {
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
             System.out.print(" " + head.value);
             head = head.next;
         }
