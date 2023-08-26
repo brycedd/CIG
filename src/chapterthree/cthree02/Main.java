@@ -8,6 +8,7 @@ import chapterthree.Node;
 public class Main {
     public static void main(String[] args) {
         Node depthNode = Node.getDepthNode();
+        System.out.println(depthNode);
     }
 
     public static int minDepth1(Node head) {
