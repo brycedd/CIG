@@ -12,7 +12,7 @@ public class Main {
         Node simpleTree = Node.getSimpleTree();
         preOrderRecur(simpleTree);
         System.out.println();
-        preOrder(simpleTree);
+        preOrder2(simpleTree);
         System.out.println();
         System.out.println(" in order");
         inOrderRecur(simpleTree);
@@ -115,6 +115,24 @@ public class Main {
         }
     }
 
+    public static void preOrder2(Node head) {
+        if (null == head) {
+            return;
+        }
+        Stack<Node> stack = new Stack<>();
+        stack.push(head);
+        while (!stack.isEmpty()) {
+            Node pop = stack.pop();
+            System.out.print(pop.value + " ");
+            if (null != pop.right) {
+                stack.push(pop.right);
+            }
+            if (null != pop.left) {
+                stack.push(pop.left);
+            }
+        }
+    }
+
     /**
      * 递归先序遍历树
      */
@@ -126,6 +144,4 @@ public class Main {
         preOrderRecur(head.left);
         preOrderRecur(head.right);
     }
-
-
 }
